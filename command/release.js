@@ -52,7 +52,8 @@ async function release() {
   // 升级版本
   const spinner = ora('🗃 开始提交模板...').start();
   await upVersion();
-  pusBranch();
+  pusBranch(); // 不太好用，这里自己手动提交
+  // console.log('pusBranch(): 手动 execSync(`git add . && git commit -m \'release project\' && git push`);');
   spinner.succeed('🎉 模版提交完成');
   await releaseTemplate({...templateConfig, baseApi});
 }

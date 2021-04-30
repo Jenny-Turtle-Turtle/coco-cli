@@ -40,7 +40,7 @@ async function releaseComponents({ webDomian, nameSpace, gitUrl, name, baseApi }
     });
     config.config = JSON.stringify(config.config);
     const hasRecord = !!res.data.result[0];
-    if (!hasRecord) {
+    if (!hasRecord) { // 没有就添加
       const res = await axios.post(`${baseApi}/component/add`, config);
       if (res.data.showType !== undefined) {
         console.log('上传失败' + res.data.result.message);
